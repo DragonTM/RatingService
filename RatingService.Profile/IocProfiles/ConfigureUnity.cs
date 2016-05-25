@@ -28,6 +28,7 @@ namespace RatingService.Profile.IocProfiles
 		private static void InitBll(IUnityContainer container)
 		{
 			container.RegisterType<IProtectingService, ProtectingService>();
+			container.RegisterType<IEnterpriseService, EnterpriseService>();
 		}
 
 		private static void InitAuth(IUnityContainer container)
