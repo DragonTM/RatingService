@@ -4,7 +4,7 @@ namespace RatingService.Domain.Entities
 {
 	public class Enterprise
 	{
-		public int UserId { get; set; }
+		public int Id { get; set; }
 
 		public string Name { get; set; }
 

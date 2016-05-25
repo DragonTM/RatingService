@@ -31,8 +31,7 @@ namespace RatingService.Dal
 
 			modelBuilder.Entity<Enterprise>()
 				.HasRequired(e => e.User)
-				.WithOptional(u => u.Enterprise)
-				.Map(m => m.MapKey("UserId"));
+				.WithOptional(u => u.Enterprise);
 
 			modelBuilder.Entity<Enterprise>()
 				.HasMany(e => e.Ratings)

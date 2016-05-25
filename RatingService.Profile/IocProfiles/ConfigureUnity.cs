@@ -10,27 +10,27 @@ using RatingService.Dal.Interfaces;
 
 namespace RatingService.Profile.IocProfiles
 {
-	public class ConfigureUnitity
+	public class ConfigureUnity
 	{
-		public void Init(IUnityContainer container)
+		public static void Init(IUnityContainer container)
 		{
 			InitDal(container);
 			InitBll(container);
 			InitAuth(container);
 		}
 
-		private void InitDal(IUnityContainer container)
+		private static void InitDal(IUnityContainer container)
 		{
 			container.RegisterType<DbContext, RatingServiceDbContext>(new PerResolveLifetimeManager());
 			container.RegisterType(typeof(IRepository<>), typeof(GenericRepository<>));
 		}
 
-		private void InitBll(IUnityContainer container)
+		private static void InitBll(IUnityContainer container)
 		{
 			container.RegisterType<IProtectingService, ProtectingService>();
 		}
 
-		private void InitAuth(IUnityContainer container)
+		private static void InitAuth(IUnityContainer container)
 		{
 			container.RegisterType<IAuthService, AuthService>();
 		}
