@@ -1,0 +1,2 @@
+# RatingService
+diploma proj
