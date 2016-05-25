@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RatingService.Dal", "Rating
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RatingService.Bll", "RatingService.Bll\RatingService.Bll.csproj", "{B81C476D-46E7-4FD3-BE35-CD3F27A4610A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RatingService.Profile", "RatingService.Profile\RatingService.Profile.csproj", "{508C7635-9C15-4FE8-A3B5-975AA950FC2C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B81C476D-46E7-4FD3-BE35-CD3F27A4610A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B81C476D-46E7-4FD3-BE35-CD3F27A4610A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B81C476D-46E7-4FD3-BE35-CD3F27A4610A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{508C7635-9C15-4FE8-A3B5-975AA950FC2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{508C7635-9C15-4FE8-A3B5-975AA950FC2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{508C7635-9C15-4FE8-A3B5-975AA950FC2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{508C7635-9C15-4FE8-A3B5-975AA950FC2C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
