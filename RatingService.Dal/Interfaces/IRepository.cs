@@ -8,7 +8,7 @@ namespace RatingService.Dal.Interfaces
 	{
 		IEnumerable<T> Get();
 
-		IEnumerable<T> Get(Expression<Func<T, bool>> expression, int? skip, int? take);
+		IEnumerable<T> Get(Expression<Func<T, bool>> expression, int? skip = null, int? take = null);
 
 		T Get(int id);
 

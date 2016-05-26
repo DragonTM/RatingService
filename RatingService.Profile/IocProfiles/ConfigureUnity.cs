@@ -23,12 +23,14 @@ namespace RatingService.Profile.IocProfiles
 		{
 			container.RegisterType<DbContext, RatingServiceDbContext>(new PerResolveLifetimeManager());
 			container.RegisterType(typeof(IRepository<>), typeof(GenericRepository<>));
+			container.RegisterType<IUnitOfWork, UnitOfWork>();
 		}
 
 		private static void InitBll(IUnityContainer container)
 		{
 			container.RegisterType<IProtectingService, ProtectingService>();
 			container.RegisterType<IEnterpriseService, EnterpriseService>();
+			container.RegisterType<IRatingService, RaitngService.Bll.Services.Implementations.RatingService>();
 		}
 
 		private static void InitAuth(IUnityContainer container)

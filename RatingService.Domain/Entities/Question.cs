@@ -6,7 +6,7 @@ namespace RatingService.Domain.Entities
 	{
 		public int Id { get; set; }
 
-		public RatingType RaitngType { get; set; }
+		public RatingType RatingType { get; set; }
 
 		public string Text { get; set; }
 

@@ -23,7 +23,7 @@ namespace RatingService.Dal.Implementation
 			return _set;
 		}
 
-		public IEnumerable<T> Get(Expression<Func<T, bool>> expression, int? skip, int? take)
+		public IEnumerable<T> Get(Expression<Func<T, bool>> expression, int? skip = null, int? take = null)
 		{
 			var entities = _set.Where(expression);
 

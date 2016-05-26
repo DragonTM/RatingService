@@ -53,6 +53,15 @@
     <Compile Include="Implementation\UnitOfWork.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
+    <Compile Include="Migrations\201605251841102_InitialCreate.cs" />
+    <Compile Include="Migrations\201605251841102_InitialCreate.Designer.cs">
+      <DependentUpon>201605251841102_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605261733017_rename_rating_type.cs" />
+    <Compile Include="Migrations\201605261733017_rename_rating_type.Designer.cs">
+      <DependentUpon>201605261733017_rename_rating_type.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RatingServiceDbContext.cs" />
   </ItemGroup>
@@ -65,6 +74,14 @@
       <Project>{38B8B784-A9C1-43D6-A2AC-EDA3BB939BA2}</Project>
       <Name>RatingService.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201605251841102_InitialCreate.resx">
+      <DependentUpon>201605251841102_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605261733017_rename_rating_type.resx">
+      <DependentUpon>201605261733017_rename_rating_type.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

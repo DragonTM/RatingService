@@ -40,7 +40,7 @@ namespace RatingService.Auth.Implementation
 				return false;
 			}
 
-			var identity = new ClaimsIdentity(new List<Claim> { new Claim(ClaimTypes.Name, userName) }, "RatingService auth", ClaimTypes.Name, ClaimTypes.Role);
+			var identity = new ClaimsIdentity(new List<Claim> { new Claim(ClaimTypes.Name, userName), new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()) }, "RatingService auth", ClaimTypes.Name, ClaimTypes.Role);
 
 			var principal = new ClaimsPrincipal(identity);
 

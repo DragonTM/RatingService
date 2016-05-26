@@ -1,6 +1,8 @@
 using System;
+using AutoMapper;
 using Microsoft.Practices.Unity;
 using RatingService.Profile.IocProfiles;
+using RatingService.Web.Profiles;
 
 namespace RatingService.Web.App_Start
 {
@@ -36,6 +38,10 @@ namespace RatingService.Web.App_Start
 			// container.LoadConfiguration();
 
 			ConfigureUnity.Init(container);
+
+			var mapperConfig = new MapperConfiguration(configuration => configuration.AddProfile<MapperProfile>());
+
+			container.RegisterInstance<IMapper>(mapperConfig.CreateMapper());
 		}
 	}
 }

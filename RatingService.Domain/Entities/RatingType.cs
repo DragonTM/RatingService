@@ -2,6 +2,7 @@
 {
 	public enum RatingType
 	{
+		Test,
 		Universal
 	}
 }

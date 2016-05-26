@@ -4,7 +4,7 @@
 	{
 		public int Id { get; set; }
 
-		public RatingType RaitngType { get; set; }
+		public RatingType RatingType { get; set; }
 
 		public int CriticalValue { get; set; }
 

@@ -46,8 +46,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Implementations\EnterpriseService.cs" />
     <Compile Include="Services\Implementations\ProtectingService.cs" />
+    <Compile Include="Services\Implementations\RatingService.cs" />
     <Compile Include="Services\Interfaces\IProtectingService.cs" />
     <Compile Include="Services\Interfaces\IEnterpriseService.cs" />
+    <Compile Include="Services\Interfaces\IRatingService.cs" />
     <Compile Include="Strategies\Implementatios\UniversalRatingStrategy.cs" />
     <Compile Include="Strategies\Interfaces\IRatingStrategy.cs" />
   </ItemGroup>

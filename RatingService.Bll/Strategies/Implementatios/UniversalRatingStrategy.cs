@@ -8,7 +8,7 @@ namespace RatingService.Bll.Strategies.Implementatios
 	{
 		public float EvaluateRating(Enterprise enterprise)
 		{
-			return enterprise.Answers.Where(a => a.Question.RaitngType == RatingType.Universal).Sum(a => a.Result * a.Question.Value);
+			return enterprise.Answers.Where(a => a.Question.RatingType == RatingType.Universal).Sum(a => a.Result * a.Question.Value);
 		}
 	}
 }
