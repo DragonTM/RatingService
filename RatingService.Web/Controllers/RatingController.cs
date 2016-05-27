@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Security.Claims;
 using System.Web.Mvc;
 using AutoMapper;
-using RaitngService.Bll.Services.Interfaces;
+using RatingService.Bll.Services.Interfaces;
 using RatingService.Domain.Entities;
 using RatingService.Web.Models;
 
@@ -9,7 +10,7 @@ namespace RatingService.Web.Controllers
 {
 	public class RatingController : Controller
 	{
-		private readonly RaitngService.Bll.Services.Interfaces.IRatingService _ratingService;
+		private readonly IRatingService _ratingService;
 		private readonly IMapper _mapper;
 
 		public RatingController(IRatingService ratingService, IMapper mapper)
@@ -19,27 +20,36 @@ namespace RatingService.Web.Controllers
 		}
 
 		// GET: Rating
-		public ActionResult Index()
+		public ActionResult Index(RatingType ratingType = RatingType.Universal)
 		{
 			return View();
 		}
 
-		[ActionName("fill")]
-		public ActionResult Create(RatingType ratingType = RatingType.Universal)
+		public ActionResult Calculate(RatingType ratingType = RatingType.Universal)
 		{
 			var setRatingViewModel = new SetRatingViewModel
 			{
 				Questions = _mapper.Map<IEnumerable<QuestionViewModel>>(_ratingService.GetQuestions(ratingType)),
 				RatingType = ratingType.ToString(),
-				RaitngTypes = new List<string> { RatingType.Universal.ToString(), RatingType.Test.ToString() }
+				RaitngTypes = GetRatings()
 			};
 
 			return View("Create", setRatingViewModel);
 		}
 
+		[HttpPost]
 		public ActionResult Calculate(CalculateViewModel model)
 		{
-			return RedirectToAction("Index", "Home");
+			var enterpriseId = int.Parse(((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.NameIdentifier).Value);
+
+			_ratingService.SaveAnswers(enterpriseId, model.RatingType, _mapper.Map<IEnumerable<Answer>>(model.Answers));
+
+			return RedirectToAction("Index", new { ratingType = model.RatingType });
+		}
+
+		private IEnumerable<string> GetRatings()
+		{
+			return new List<string> { RatingType.Universal.ToString(), RatingType.Test.ToString() };
 		}
 	}
 }

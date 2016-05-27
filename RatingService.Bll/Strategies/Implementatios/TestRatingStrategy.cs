@@ -2,7 +2,7 @@
 using RatingService.Bll.Strategies.Interfaces;
 using RatingService.Domain.Entities;
 
-namespace RaitngService.Bll.Strategies.Implementatios
+namespace RatingService.Bll.Strategies.Implementatios
 {
 	public class TestRatingStrategy : IRatingStrategy
 	{

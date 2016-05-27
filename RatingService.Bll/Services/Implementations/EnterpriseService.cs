@@ -1,8 +1,8 @@
-﻿using RaitngService.Bll.Services.Interfaces;
+﻿using RatingService.Bll.Services.Interfaces;
 using RatingService.Dal.Interfaces;
 using RatingService.Domain.Entities;
 
-namespace RaitngService.Bll.Services.Implementations
+namespace RatingService.Bll.Services.Implementations
 {
 	public class EnterpriseService : IEnterpriseService
 	{

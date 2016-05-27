@@ -7,7 +7,7 @@
 <ul class="nav nav-tabs">
     @foreach (var ratingType in Model.RaitngTypes)
     {
-        <li>@Html.ActionLink(ratingType, "fill", new {ratingType}, new {@class = ratingType == Model.RatingType ? "active" : string.Empty})</li>
+        <li>@Html.ActionLink(ratingType, "Calculate", new {ratingType}, new {@class = ratingType == Model.RatingType ? "active" : string.Empty})</li>
     }
 </ul>
 

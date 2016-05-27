@@ -7,8 +7,8 @@
     <ProjectGuid>{B81C476D-46E7-4FD3-BE35-CD3F27A4610A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RaitngService.Bll</RootNamespace>
-    <AssemblyName>RaitngService.Bll</AssemblyName>
+    <RootNamespace>RatingService.Bll</RootNamespace>
+    <AssemblyName>RatingService.Bll</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -50,6 +50,7 @@
     <Compile Include="Services\Interfaces\IProtectingService.cs" />
     <Compile Include="Services\Interfaces\IEnterpriseService.cs" />
     <Compile Include="Services\Interfaces\IRatingService.cs" />
+    <Compile Include="Strategies\Implementatios\TestRatingStrategy.cs" />
     <Compile Include="Strategies\Implementatios\UniversalRatingStrategy.cs" />
     <Compile Include="Strategies\Interfaces\IRatingStrategy.cs" />
   </ItemGroup>

@@ -9,6 +9,7 @@ namespace RatingService.Web.Profiles
 		{
 			CreateMap<RegistrationViewModel, Enterprise>();
 			CreateMap<Question, QuestionViewModel>();
+			CreateMap<AnswerViewModel, Answer>();
 		}
 	}
 }

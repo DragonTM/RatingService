@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using RatingService.Domain.Entities;
 
-namespace RaitngService.Bll.Services.Interfaces
+namespace RatingService.Bll.Services.Interfaces
 {
 	public interface IRatingService
 	{

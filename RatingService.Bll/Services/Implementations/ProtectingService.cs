@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Security.Cryptography;
 using System.Text;
-using RaitngService.Bll.Services.Interfaces;
+using RatingService.Bll.Services.Interfaces;
 
-namespace RaitngService.Bll.Services.Implementations
+namespace RatingService.Bll.Services.Implementations
 {
 	public class ProtectingService : IProtectingService
 	{

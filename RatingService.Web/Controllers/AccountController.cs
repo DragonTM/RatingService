@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using AutoMapper;
-using RaitngService.Bll.Services.Interfaces;
 using RatingService.Auth.Interfaces;
+using RatingService.Bll.Services.Interfaces;
 using RatingService.Domain.Entities;
 using RatingService.Web.Models;
 

@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using RaitngService.Bll.Services.Interfaces;
-using RaitngService.Bll.Strategies.Implementatios;
+using RatingService.Bll.Services.Interfaces;
 using RatingService.Bll.Strategies.Implementatios;
 using RatingService.Bll.Strategies.Interfaces;
 using RatingService.Dal.Interfaces;
 using RatingService.Domain.Entities;
 
-namespace RaitngService.Bll.Services.Implementations
+namespace RatingService.Bll.Services.Implementations
 {
 	public class RatingService : IRatingService
 	{

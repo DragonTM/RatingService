@@ -1,9 +1,9 @@
 ﻿using System.Data.Entity;
 using Microsoft.Practices.Unity;
-using RaitngService.Bll.Services.Implementations;
-using RaitngService.Bll.Services.Interfaces;
 using RatingService.Auth.Implementation;
 using RatingService.Auth.Interfaces;
+using RatingService.Bll.Services.Implementations;
+using RatingService.Bll.Services.Interfaces;
 using RatingService.Dal;
 using RatingService.Dal.Implementation;
 using RatingService.Dal.Interfaces;
@@ -30,7 +30,7 @@ namespace RatingService.Profile.IocProfiles
 		{
 			container.RegisterType<IProtectingService, ProtectingService>();
 			container.RegisterType<IEnterpriseService, EnterpriseService>();
-			container.RegisterType<IRatingService, RaitngService.Bll.Services.Implementations.RatingService>();
+			container.RegisterType<IRatingService, Bll.Services.Implementations.RatingService>();
 		}
 
 		private static void InitAuth(IUnityContainer container)

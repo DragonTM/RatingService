@@ -1,9 +1,8 @@
+using System.Data.Entity.Migrations;
 using RatingService.Domain.Entities;
 
-namespace RaitingService.Dal.Migrations
+namespace RatingService.Dal.Migrations
 {
-	using System.Data.Entity.Migrations;
-
 	internal sealed class Configuration : DbMigrationsConfiguration<RatingService.Dal.RatingServiceDbContext>
 	{
 		public Configuration()

@@ -7,8 +7,8 @@
     <ProjectGuid>{FA836D5D-B96B-4120-90FD-B4ED23A32E9A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RaitingService.Dal</RootNamespace>
-    <AssemblyName>RaitingService.Dal</AssemblyName>
+    <RootNamespace>RatingService.Dal</RootNamespace>
+    <AssemblyName>RatingService.Dal</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

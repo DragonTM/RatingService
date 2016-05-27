@@ -4,9 +4,9 @@ using System.Security.Claims;
 using System.Web;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.DataHandler;
-using RaitngService.Bll.Services.Interfaces;
 using RatingService.Auth.Interfaces;
 using RatingService.Auth.Utils;
+using RatingService.Bll.Services.Interfaces;
 using RatingService.Dal.Interfaces;
 using RatingService.Domain.Entities;
 
