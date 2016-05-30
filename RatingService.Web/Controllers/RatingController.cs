@@ -20,9 +20,18 @@ namespace RatingService.Web.Controllers
 		}
 
 		// GET: Rating
-		public ActionResult Index(RatingType ratingType = RatingType.Universal)
+		public ActionResult Index(RatingType ratingType = RatingType.Universal, int? top = null)
 		{
-			return View();
+			var ratingsStatistic = _ratingService.GetResults(ratingType, top);
+
+			var statisticViewModel = new StatisticsViewModel
+			{
+				RatingType = ratingType.ToString(),
+				Ratings = _mapper.Map<IEnumerable<RatingViewModel>>(ratingsStatistic),
+				RaitngTypes = GetRatings()
+			};
+
+			return View(statisticViewModel);
 		}
 
 		public ActionResult Calculate(RatingType ratingType = RatingType.Universal)

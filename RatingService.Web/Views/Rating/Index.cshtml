@@ -1,0 +1,42 @@
+﻿@model RatingService.Web.Models.StatisticsViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<ul class="nav nav-tabs">
+    @foreach (var ratingType in Model.RaitngTypes)
+    {
+        <li class = @(ratingType == Model.RatingType ? "active" : string.Empty)>@Html.ActionLink(ratingType, "Index", new { ratingType })</li>
+    }
+</ul>
+<div class="tab-content">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ratings.FirstOrDefault().EnterpriseName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ratings.FirstOrDefault().Points)
+            </th>
+            <th></th>
+        </tr>
+
+        @{
+            var ratingList = Model.Ratings.ToList();
+        }
+
+        @for (var i = 0; i < ratingList.Count; i++)
+        {
+            <tr>
+                <td>@i+1</td>
+                <td>
+                    @Html.DisplayFor(modelItem => ratingList[i].EnterpriseName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => ratingList[i].Points)
+                </td>
+            </tr>
+        }
+    </table>
+</div>

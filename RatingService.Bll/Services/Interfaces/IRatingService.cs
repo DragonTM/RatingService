@@ -8,5 +8,7 @@ namespace RatingService.Bll.Services.Interfaces
 		IEnumerable<Question> GetQuestions(RatingType ratingType);
 
 		Suggestion SaveAnswers(int enterpriseId, RatingType ratingType, IEnumerable<Answer> answers);
+
+		IEnumerable<Rating> GetResults(RatingType ratingType, int? top = null);
 	}
 }

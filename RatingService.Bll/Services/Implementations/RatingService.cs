@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using RatingService.Bll.Services.Interfaces;
 using RatingService.Bll.Strategies.Implementatios;
 using RatingService.Bll.Strategies.Interfaces;
@@ -52,6 +53,18 @@ namespace RatingService.Bll.Services.Implementations
 			});
 
 			return _suggestionsRepository.FirstOrDefault(s => s.RatingType == ratingType && Math.Abs(s.CriticalValue - ratingPoints) < 10);
+		}
+
+		public IEnumerable<Rating> GetResults(RatingType ratingType, int? take = null)
+		{
+			var ratings = _ratingsRepository.Get(r => r.RatingType == ratingType).OrderByDescending(r => r.Points);
+
+			if (take.HasValue)
+			{
+				return ratings.Take(take.Value);
+			}
+
+			return ratings;
 		}
 
 		private IRatingStrategy ResolveStrategy(RatingType ratingType)
