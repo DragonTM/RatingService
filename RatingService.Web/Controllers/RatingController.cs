@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Security.Claims;
 using System.Web.Mvc;
 using AutoMapper;
@@ -19,7 +20,6 @@ namespace RatingService.Web.Controllers
 			_mapper = mapper;
 		}
 
-		// GET: Rating
 		public ActionResult Index(RatingType ratingType = RatingType.Universal, int? top = null)
 		{
 			var ratingsStatistic = _ratingService.GetResults(ratingType, top);
@@ -51,14 +51,14 @@ namespace RatingService.Web.Controllers
 		{
 			var enterpriseId = int.Parse(((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.NameIdentifier).Value);
 
-			_ratingService.SaveAnswers(enterpriseId, model.RatingType, _mapper.Map<IEnumerable<Answer>>(model.Answers));
+			var suggestion = _mapper.Map<SuggestionViewModel>(_ratingService.SaveAnswers(enterpriseId, model.RatingType, _mapper.Map<IEnumerable<Answer>>(model.Answers)));
 
-			return RedirectToAction("Index", new { ratingType = model.RatingType });
+			return View("Suggestion", suggestion);
 		}
 
 		private IEnumerable<string> GetRatings()
 		{
-			return new List<string> { RatingType.Universal.ToString(), RatingType.Test.ToString() };
+			return Enum.GetNames(typeof(RatingType));
 		}
 	}
 }

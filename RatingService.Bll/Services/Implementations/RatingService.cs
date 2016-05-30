@@ -16,14 +16,16 @@ namespace RatingService.Bll.Services.Implementations
 		private readonly IRepository<Answer> _answersRepository;
 		private readonly IRepository<Rating> _ratingsRepository;
 		private readonly IRepository<Suggestion> _suggestionsRepository;
+		private readonly IUnitOfWork _uow;
 
-		public RatingService(IRepository<Question> questionsRepository, IRepository<Answer> answersRepository, IRepository<Rating> ratingsRepository, IRepository<Suggestion> suggestionsRepository, IRepository<Enterprise> enterpriseRepository)
+		public RatingService(IRepository<Question> questionsRepository, IRepository<Answer> answersRepository, IRepository<Rating> ratingsRepository, IRepository<Suggestion> suggestionsRepository, IRepository<Enterprise> enterpriseRepository, IUnitOfWork uow)
 		{
 			_questionsRepository = questionsRepository;
 			_answersRepository = answersRepository;
 			_ratingsRepository = ratingsRepository;
 			_suggestionsRepository = suggestionsRepository;
 			_enterpriseRepository = enterpriseRepository;
+			_uow = uow;
 		}
 
 		public IEnumerable<Question> GetQuestions(RatingType ratingType)
@@ -33,13 +35,26 @@ namespace RatingService.Bll.Services.Implementations
 
 		public Suggestion SaveAnswers(int enterpriseId, RatingType ratingType, IEnumerable<Answer> answers)
 		{
-			var enterprise = _enterpriseRepository.Get(enterpriseId);
-
 			foreach (var answer in answers)
 			{
 				answer.EnterpriseId = enterpriseId;
-				_answersRepository.Create(answer);
+				answer.Question = _questionsRepository.Get(answer.QuestionId);
+
+				var entity = _answersRepository.FirstOrDefault(a => a.QuestionId == answer.QuestionId && a.EnterpriseId == enterpriseId);
+
+				if (entity == null)
+				{
+					_answersRepository.Create(answer);
+				}
+				else
+				{
+					entity.Result = answer.Result;
+
+					_answersRepository.Update(entity);
+				}
 			}
+
+			var enterprise = _enterpriseRepository.Get(enterpriseId);
 
 			var ratingStrategy = ResolveStrategy(ratingType);
 
@@ -51,6 +66,8 @@ namespace RatingService.Bll.Services.Implementations
 				Points = (int)Math.Round(ratingPoints),
 				RatingType = ratingType
 			});
+
+			_uow.SaveChanges();
 
 			return _suggestionsRepository.FirstOrDefault(s => s.RatingType == ratingType && Math.Abs(s.CriticalValue - ratingPoints) < 10);
 		}

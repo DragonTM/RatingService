@@ -12,6 +12,7 @@ namespace RatingService.Web.Profiles
 			CreateMap<AnswerViewModel, Answer>();
 			CreateMap<Rating, RatingViewModel>()
 				.ForMember(vm => vm.EnterpriseName, m => m.MapFrom(r => r.Enterprise.Name));
+			CreateMap<Suggestion, SuggestionViewModel>();
 		}
 	}
 }
